@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
-    int firstNumber = 0;
-    int secondNumber = 0;
 
     @Override
     public void start (Stage primaryStage){
@@ -51,16 +49,12 @@ public class Main extends Application {
 
         });
         
-
         Scene scene = new Scene(root , 400, 200);
         primaryStage.setScene(scene);
-        primaryStage.show();
-
-       
-            
-        
+        primaryStage.show();   
        
     }
+    
     public static void main(String[] args) throws Exception {
         launch (args);
     }
