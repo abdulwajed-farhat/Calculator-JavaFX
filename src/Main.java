@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
@@ -17,36 +18,41 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage){
-        FlowPane root = new FlowPane();
 
+        GridPane root = new GridPane();
+
+        root.setHgap(10);
+        root.setVgap(10);
+
+        Label value1 = new Label("Value 1: ");
+        Label value2 = new Label("Value 2: ");
+        Label result = new Label("Result: ");
+        Label resultBox = new Label();
+
+        TextField value1Box = new TextField();
+        TextField value2Box = new TextField();
         
-        
-        Button button1 = new Button("1");
-        button1.setPrefSize(40, 40);
 
-        Button button2 = new Button("2");
-        button1.setPrefSize(40, 40);
+        Button calButton = new Button("Calculate Sum");
 
-        Label label2 = new Label();
-        label2.setText("New Label");
+        root.add(value1, 0, 0);
+        root.add(value2, 0, 1);
+        root.add(result, 0, 3);
+        root.add(value1Box, 1, 0);
+        root.add(value2Box, 1, 1);
+        root.add(resultBox, 1, 3);
+        root.add(calButton,1,2);
 
-        Button calButton = new Button(" + ");
-        calButton.setPrefSize(80, 80);
-
-        Label label = new Label();
-        label.setText("Result");
-
-        button1.setOnAction(e -> firstNumber = 1);
-        button1.setOnAction(e -> secondNumber = 2);
-
-        calButton.setOnAction(e -> {
+        calButton.setOnAction(e ->{
+            int firstNumber = Integer.parseInt(value1Box.getText());
+            int secondNumber = Integer.parseInt(value2Box.getText());
             int resultNumber = firstNumber + secondNumber;
-            label.setText(Integer.toString(resultNumber));
+            resultBox.setText(Integer.toString(resultNumber));
+
         });
-    
         
-        root.getChildren().addAll(button1, button2, calButton, label,label2);
-        Scene scene = new Scene(root, 400, 400);
+
+        Scene scene = new Scene(root , 400, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
 
