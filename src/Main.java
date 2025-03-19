@@ -27,6 +27,9 @@ public class Main extends Application {
         Button button2 = new Button("2");
         button1.setPrefSize(40, 40);
 
+        Label label2 = new Label();
+        label2.setText("New Label");
+
         Button calButton = new Button(" + ");
         calButton.setPrefSize(80, 80);
 
@@ -42,7 +45,7 @@ public class Main extends Application {
         });
     
         
-        root.getChildren().addAll(button1, button2, calButton, label);
+        root.getChildren().addAll(button1, button2, calButton, label,label2);
         Scene scene = new Scene(root, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
